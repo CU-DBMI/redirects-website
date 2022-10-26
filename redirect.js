@@ -3,8 +3,11 @@ let list = "W10=";
 
 list = JSON.parse(window.atob(list));
 
-// normalize path. lower case, remove leading slashes.
-const from = window.location.pathname.toLowerCase().replace(/^(\/+)/, "");
+// normalize path. lower case, remove leading slashes, remove repo name.
+const from = window.location.pathname
+  .toLowerCase()
+  .replace(/^redirects-website/, "")
+  .replace(/^(\/+)/, "");
 
 // find corresponding "to" field
 const to = list.find((entry) => entry?.from === from)?.to;
