@@ -1,5 +1,5 @@
 // GENERATED AUTOMATICALLY, DO NOT EDIT
-let list = "";
+let list = "W10=";
 
 list = JSON.parse(window.atob(list));
 
@@ -12,7 +12,16 @@ const to = list.find((entry) => entry?.from === from)?.to;
 // enable "preserve log" in browser dev tools to still see this after redirect
 console.info({ from, to });
 
-// navigate to destination
+// immediately navigate to destination
 if (to) window.location.href = to;
-// or display error if no destination
-else document.body.innerHTML = `No redirect link found for "${from}"`;
+
+// if no matching destination, do a fallback action of your choice
+
+// show html error message
+const message = `
+  No redirect link found for ${from}.<br>
+`;
+window.onload = () => (document.body.innerHTML = message);
+
+// immediately navigate to some fallback url
+// window.location.href = "some-fallback-url.com/";
