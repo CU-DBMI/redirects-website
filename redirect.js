@@ -25,7 +25,7 @@ if (to) window.location.href = to;
 
 // show html error message
 const message = `
-  No redirect link found for ${from}.<br>
+  No redirect link found for "${from}".<br>
 `;
 window.onload = () => (document.body.innerHTML = message);
 
