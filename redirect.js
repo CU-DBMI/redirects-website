@@ -3,10 +3,13 @@ let list = "W10=";
 
 list = JSON.parse(window.atob(list));
 
+// name of this repo
+const repo = "redirects-website";
+
 // normalize path. lower case, remove leading slashes, remove repo name.
 const from = window.location.pathname
   .toLowerCase()
-  .replace(/^redirects-website/, "")
+  .replace(new RegExp(`^/*${repo}`), "")
   .replace(/^(\/+)/, "");
 
 // find corresponding "to" field
