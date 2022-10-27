@@ -3,13 +3,13 @@ let list = "W3siZnJvbSI6ImNoYXRyb29tIiwidG8iOiJodHRwczovL3pvb20udXMvai8xMjM0NWFi
 
 list = JSON.parse(window.atob(list));
 
-// name of this repo
-const repo = "redirects-website";
+// root where site is being hosted
+const baseurl = "";
 
 // normalize path. lower case, remove leading slashes, remove repo name.
 const from = window.location.pathname
   .toLowerCase()
-  .replace(new RegExp(`^/*${repo}`), "")
+  .replace(new RegExp(`^/*${baseurl}`), "")
   .replace(/^(\/+)/, "");
 
 // find corresponding "to" field
