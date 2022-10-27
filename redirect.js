@@ -4,12 +4,12 @@ let list = "W3siZnJvbSI6ImNoYXRyb29tIiwidG8iOiJodHRwczovL3pvb20udXMvai8xMjM0NWFi
 list = JSON.parse(window.atob(list));
 
 // root where site is being hosted
-const baseurl = document.querySelector("base")?.href;
+const baseurl = "/redirects-website";
 
 // normalize path. lower case, remove leading slashes, remove baseurl.
 const from = window.location.pathname
   .toLowerCase()
-  .replace(baseurl, "")
+  .replace(new RegExp(`^/*${baseurl}`), "")
   .replace(/^(\/+)/, "");
 
 // find corresponding "to" field
