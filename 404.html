@@ -3,11 +3,9 @@
   <head>
     <title>404</title>
 
-    <base href="redirects-website/" />
-
     <!-- analytics code goes here -->
 
-    <script id="redirect" src="./redirect.js"></script>
+    <script id="redirect" src="redirect.js"></script>
     <script>
       // force browser to not load redirect script from cache
       document.getElementById("redirect").src += "?v=" + Date.now();
