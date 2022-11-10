@@ -5,11 +5,11 @@
 
     <!-- analytics code goes here -->
 
-    <script id="redirect" data-src="redirect.js"></script>
     <script>
-      // force browser to not load redirect script from cache
-      const script = document.getElementById("redirect");
-      script.src = script.dataset.src + "?v=" + Date.now();
+      const script = document.createElement("script");
+      script.src = "redirect.js?v=" + Date.now(); // bust cache
+      script.async = false;
+      document.currentScript.after(script);
     </script>
     <style>
       body {
