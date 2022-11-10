@@ -19,15 +19,17 @@ const to = list.find((entry) => entry?.from === from)?.to;
 console.info({ from, to });
 
 // immediately navigate to destination
-if (to) window.location.href = to;
+if (to)
+  window.location.href = to;
 
-// if no matching destination, do a fallback action of your choice
+// if no matching destination
+else {
+  // show html error message
+  const message = `
+    No redirect link found for "${from}".<br>
+  `;
+  window.onload = () => { document.body.innerHTML = message };
 
-// show html error message
-const message = `
-  No redirect link found for "${from}".<br>
-`;
-window.onload = () => (document.body.innerHTML = message);
-
-// immediately navigate to some fallback url
-// window.location.href = "some-fallback-url.com/";
+  // OR, immediately navigate to some fallback url
+  // window.location.href = "some-fallback-url.com/";
+}
